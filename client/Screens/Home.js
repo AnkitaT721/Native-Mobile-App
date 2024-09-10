@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import { StyleSheet, Text, View, Image, ScrollView } from "react-native";
 import mImg from "./mountain.jpg";
+import { AuthContext } from "../Context/authContext";
+import FooterMenu from "../Components/Menus/FooterMenu";
 
 const HomePage = ({ navigation }) => {
+  const [state] = useContext(AuthContext)
   return (
     <ScrollView contentContainerStyle={styles.container}>
       <Text style={styles.title}>Welcome to My App</Text>
@@ -21,6 +24,12 @@ const HomePage = ({ navigation }) => {
         <Text onPress={() => navigation.navigate("Login")}>login</Text>
         <Text onPress={() => navigation.navigate("Signup")}>Signup</Text>
       </View>
+
+      <View>
+        <Text>{JSON.stringify(state, null, 4)}</Text>
+      </View>
+
+      <FooterMenu />
     </ScrollView>
   );
 };
