@@ -1,26 +1,45 @@
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import React from "react";
 import FontAwesome5 from "react-native-vector-icons/FontAwesome5";
-import { useNavigation } from "@react-navigation/native";
+import { useNavigation, useRoute } from "@react-navigation/native";
 
 const FooterMenu = () => {
+  //Hooks
   const navigation = useNavigation();
+  const route = useRoute();
+
   return (
     <View style={styles.container}>
       <TouchableOpacity onPress={() => navigation.navigate("Home")}>
-        <FontAwesome5 name="home" style={styles.iconStyle} />
+        <FontAwesome5
+          name="home"
+          style={styles.iconStyle}
+          color={route.name === "Home" && "orange"}
+        />
         <Text>Home</Text>
       </TouchableOpacity>
-      <TouchableOpacity>
-        <FontAwesome5 name="plus-square" style={styles.iconStyle} />
+      <TouchableOpacity onPress={() => navigation.navigate("Post")}>
+        <FontAwesome5
+          name="plus-square"
+          style={styles.iconStyle}
+          color={route.name === "Post" && "orange"}
+        />
         <Text>Post</Text>
       </TouchableOpacity>
-      <TouchableOpacity>
-        <FontAwesome5 name="list" style={styles.iconStyle} />
+      <TouchableOpacity onPress={() => navigation.navigate("MyPosts")}>
+        <FontAwesome5
+          name="list"
+          style={styles.iconStyle}
+          color={route.name === "MyPosts" && "orange"}
+        />
         <Text>My Posts</Text>
       </TouchableOpacity>
-      <TouchableOpacity>
-        <FontAwesome5 name="user" style={styles.iconStyle} />
+      <TouchableOpacity onPress={() => navigation.navigate("Account")}>
+        <FontAwesome5
+          name="user"
+          style={styles.iconStyle}
+          color={route.name === "Account" && "orange"}
+        />
         <Text>Account</Text>
       </TouchableOpacity>
     </View>

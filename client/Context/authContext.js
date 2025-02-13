@@ -22,8 +22,9 @@ const AuthProvider = ({ children }) => {
     };
     loadLocalStorageData();
   }, []);
-  //default axios setting
-  axios.defaults.baseURL = "http://192.168.94.111:8000/api/v1";
+  //default axios settingr
+  axios.defaults.headers.common["Authorization"] = `Bearer ${state?.token}`;
+  axios.defaults.baseURL = "http://192.168.69.111:8000/api/v1";
 
   return (
     <AuthContext.Provider value={[state, setState]}>
