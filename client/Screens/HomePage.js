@@ -11,6 +11,7 @@ import { PostContext } from "../Context/postContext";
 import PostCard from "../Components/PostCard";
 
 
+
 const HomePage = () => {
   //global state
   const [posts, getAllPosts] = useContext(PostContext);
