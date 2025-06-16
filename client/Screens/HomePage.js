@@ -10,6 +10,7 @@ import FooterMenu from "../Components/Menus/FooterMenu";
 import { PostContext } from "../Context/postContext";
 import PostCard from "../Components/PostCard";
 
+
 const HomePage = () => {
   //global state
   const [posts, getAllPosts] = useContext(PostContext);
